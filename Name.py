@@ -27,11 +27,12 @@ users = {
   ]
  }
 
-
+num=0
 for key, data in users.items():
      #print data
      for value in data:
-          print value['first_name'], value['last_name'], len(value['last_name'])+len(value['first_name'])
+         num += 1
+         print num,value['first_name'], value['last_name'], len(value['last_name'])+len(value['first_name'])
 
 
 
