@@ -1,0 +1,26 @@
+h1 {
+  color:#4b4b4f;
+  margin-left: 100px;
+}
+
+#main{
+  width: 400px;
+  height: 425px;
+  background-color: #767984;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+}
+
+form{
+  margin-left: 25px;
+}
+
+.dojoinput{
+  margin-bottom: 20px;
+}
+
+button{
+  margin-left: 275px;
+}
