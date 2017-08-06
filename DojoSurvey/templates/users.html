@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dojo Survey Results</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+
+    <div id="main">
+
+      <h1>Submitted Info:</h1>
+
+      <p>Name: <span class="aligntext"> {{name}}</span></p>
+      <p>Dojo Location: <span class="aligntext">{{location}}</span></p>
+      <p>Favorite Language: <span class="aligntext">{{language}}</span></p>
+      <p>Coments: <span class="aligntext"> {{comment}}</span></p>
+
+      <a href="/"><button type="button" id="returnbutton">Go Back</button></a>
+
+    </div>
+
+  </body>
+</html>

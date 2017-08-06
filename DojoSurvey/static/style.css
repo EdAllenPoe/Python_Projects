@@ -13,6 +13,16 @@ h1 {
   border-radius: 10px;
 }
 
+/*span.aligntext{
+  margin-left: 150px;
+}*/
+
+#returnbutton{
+
+  margin-left: 275px;
+  margin-top: 50px;
+}
+
 form{
   margin-left: 25px;
 }
