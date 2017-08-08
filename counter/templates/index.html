@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+<head>
+    <title>Counter assignment</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<body>
+    <h1>Counter</h1>
+    <p>{{session['counter']}} times</p>
+</body>
+</html>
