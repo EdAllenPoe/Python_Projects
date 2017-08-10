@@ -1,0 +1,52 @@
+*{
+  font-family: "helvetica",sans-serif;
+}
+
+#main{
+  width: 700px;
+  height: 575px;
+  background-color: #4d6387;
+  padding-top: 30px;
+  border-radius: 20px;
+
+}
+
+#red{
+  width: 700px;
+  height: 575px;
+  background-color: red;
+  padding-top: 30px;
+  border-radius: 20px;
+
+}
+
+#green{
+  width: 700px;
+  height: 575px;
+  background-color: green;
+  padding-top: 30px;
+  border-radius: 20px;
+
+}
+
+h1{
+  text-align: center;
+  margin-top: 20px;
+  color:#2a323f;
+  text-decoration: underline;
+
+}
+
+h2{
+  text-align: center;
+}
+
+
+form{
+  text-align: center;
+}
+
+button{
+  margin-top: 10px;
+  border-radius: 5px;
+}

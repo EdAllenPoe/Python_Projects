@@ -1,0 +1,48 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Guess Page</title>
+  </head>
+  <body>
+    <p>Your Guess Is: {{guess}}</p>
+    <p>{{num}}</p>
+
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Guess</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    {% if guess>num %}
+      <div id="red">
+      <h1>Too High</h1>
+      <h2>Try Again</h2>
+      <form action="/guess" method="post">
+        <input type="text" name="guess" value=""><br>
+        <button type="submit" name="button">Submit</button>
+      </form>
+      </div>
+      {% elif guess< num %}
+      <div id="red">
+      <h1>Too Low</h1>
+      <h2>Try Again</h2>
+      <form action="/guess" method="post">
+        <input type="text" name="guess" value=""><br>
+        <button type="submit" name="button">Submit</button>
+      </form>
+      </div>
+      {%else%}
+      <div id="green">
+      <h1>You Got It!!</h1>
+      </div>
+      {% endif %}
+
+    <!-- <p>Your Guess is {{guess}}</p>
+    <p>The Computer guessed {{num}}</p> -->
+  </body>
+</html>
