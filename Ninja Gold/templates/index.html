@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ninja Gold</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="main">
+      <h1>NINJA GOLD</h1><img src="/static/ninja.png" alt="">
+      <div>
+      <p id="yourgold">Your Gold:</p>
+      <div id="gold">
+
+
+        <p id="amount">{{ session['gold_count'] }}</p>
+      </div>
+      </div>
+
+      <div class="locations">
+        <h2>Farm</h2>
+        <p>(earns 10-20 golds)</p>
+        <form action="/process_money" method="post">
+          <input type="hidden" name="action" value="farm">
+          <button type="submit" name="button">Find Gold!</button>
+        </form>
+      </div>
+
+      <div class="locations">
+        <h2>Cave</h2>
+        <p>(earns 5-10 golds)</p>
+        <form action="/process_money" method="post">
+          <input type="hidden" name="action" value="cave">
+          <button type="submit" name="button">Find Gold!</button>
+        </form>
+      </div>
+
+      <div class="locations">
+        <h2>House</h2>
+        <p>(earns 2-5 golds)</p>
+        <form action="/process_money" method="post">
+          <input type="hidden" name="action" value="house">
+          <button type="submit" name="button">Find Gold!</button>
+        </form>
+      </div>
+
+      <div class="locations">
+        <h2>Casino</h2>
+        <p>(earns 0-50 golds)</p>
+        <form action="/process_money" method="post">
+          <input type="hidden" name="action" value="casino">
+          <button type="submit" name="button">Find Gold!</button>
+        </form>
+      </div>
+
+      <div id="activities">
+        <p>Activities:</p>
+        <div id="activitieslog">
+          <textarea name="name" rows="8" cols="80">
+            {% for index in range(session['activity_log']|length, -1,-1) %}
+                {{ session['activity_log'][index] }}
+            {% endfor %}
+            </textarea>
+        </div>
+        <form action="/reset" method="post">
+            <input type="submit" value="Reset">
+        </form>
+  </body>
+</html>
