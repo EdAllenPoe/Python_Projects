@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Registration Form</title>
+  </head>
+  <body>
+    <div id='wrapper'>
+      <div id='form'>
+
+        {% with messages = get_flashed_messages() %}
+         {% if messages %}
+           {% for message in messages %}
+             <ul>
+               <li>{{message}}</li>
+             </ul>
+           {% endfor %}
+         {% endif %}
+        {% endwith %}
+
+
+        <form action="/result">
+          <p>Email: <input type="text" name='email' placeholder="email@email.com"></p>
+          <p>First Name: <input type="text" name='fistname' placeholder="John"></p>
+          <p>Last Name: <input type="text" name='lastname' placeholder="Doe"></p>
+          <p>Password: <input type="password" name='password'></p>
+          <p>Confirm Password: <input type='password' name='password_confirm'></p>
+          <input type='submit' value='Submit'>
+        </form>
+      </div>
+    </div>
+
+  </body>
+</html>
