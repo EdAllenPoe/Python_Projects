@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>Full Friends</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+	<div id="main">
+		<img src="../static/cat.png" width="50" height="60"alt="">
+		<h2>My Great Pals!</h2>
+		<table>
+			<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+			<th>Actions</th>
+			</tr>
+			{% for friend in all_friends: %}
+				<tr>
+					<td>{{ friend['first_name'] }}</td>
+					<td>{{friend['last_name']}}</td>
+					<td>{{ friend['email'] }}</td>
+					<td><form id="change"action="/friends/{{friend['id']}}/edit" id="edit" method="GET">
+						<input type="submit" value="Edit" name="edit">
+					</form>
+					<form id="change"action="/friends/{{friend['id']}}/delete" id="delete" method="POST">
+						<input type="submit" value="Delete" name="delete">
+					</form></td>
+				</tr>
+				{% endfor %}
+		</table>
+
+
+<!--
+		<ul>
+			{% for friend in all_friends: %}
+				<li>
+					{{ friend['name'] }} : {{ friend['email'] }}
+					<form id="change"action="/friends/{{friend['id']}}/edit" id="edit" method="GET">
+						<input type="submit" value="Edit" name="edit">
+					</form>
+					<form id="change"action="/friends/{{friend['id']}}/delete" id="delete" method="POST">
+						<input type="submit" value="Delete" name="delete">
+					</form>
+				</li>
+			{% endfor %}
+		</ul> -->
+		<h2>Create More Pals:</h2>
+		<form id="create"action="/friends" method="POST">
+			<p><input type="text" placeholder="First Name" name="first_name"></p>
+			<p><input type="text" placeholder="Last Name" name="last_name"></p>
+			<p><input type="text" placeholder="Email" name="email"></p>
+			<input type="submit" value="Create" name="add">
+		</form>
+	</div>
+</body>
+</html>

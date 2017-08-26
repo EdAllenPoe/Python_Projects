@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title>Friend</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+	<div id="main">
+		<h2 class="editme">Edit pal:</h2>
+
+			<h3 class="editme">{{ friend['name']}}</h3>
+
+		<form action="/friends/{{friend['id']}}" method="POST">
+			<input type="text" placeholder={{ friend['first_name']}}  name="first_name">
+			<input type="text" placeholder={{ friend['last_name']}}  name="last_name">
+			<input type="text" placeholder={{ friend['email']}}  name="email">
+			<input type="submit" value="Update" id="update" name="update">
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+#main{
+  width:600px;
+  height:1000px;
+  background-color:#378396;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+}
+
+img{
+  margin-left: 245px;
+  height: 90px;
+  width: auto;
+}
+
+h2{
+  margin-left: 195px;
+}
+
+h3{
+  margin-left: auto;
+  margin-right:auto;
+}
+
+table{
+  margin-left: auto;
+  margin-right:auto;
+  border: 1px solid black;
+}
+
+th{
+  margin-left: 20px;
+  border: 1px solid black;
+}
+
+td{
+  border: 1px solid black;
+}
+
+.editme{
+  display: inline-block;
+}
+
+#create{
+  margin-left: 215px;
+}
+
+#change{
+  display: inline-block;
+  margin-left: 15px;
+}
