@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Wall</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}"> -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body>
+  <div id="all">
+  <div id="head">
+    <h1>! The Wall !</h1>
+  </div>
+  <div id="main">
+      <div id="login">
+        <h1>- Login -</h1>
+        <form action="/login" method="POST">
+            <p class="formfont">
+              <label>Email: </label>
+              <input type="text" name="email"></p>
+            <p class="formfont">
+              <label>Password: </label>
+              <input type="password" name="password"></p>
+            <p class="formfont"><input type="submit" value="Login"></p>
+        </form>
+      </div><!-- /#login_container  -->
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p>{{message}}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <div id="register">
+        <h1>- Register Here -</h1>
+        <form action="/register" method="POST">
+            <p class="formfont">
+              <label>First Name:</label>
+              <input type="text" name="first_name"></p>
+            <p class="formfont">
+              <label>Last Name:</label>
+              <input type="text" name="last_name"></p>
+            <p class="formfont">
+              <label>Email:</label>
+              <input type="text" name="email"></p>
+            <p class="formfont">
+              <label>Password:</label>
+              <input type="password" name="password"></p>
+            <p class="formfont">
+              <label>Confirm Password:</label> <input type="password" name="confirm"></p>
+            <p class="formfont"><input type="submit" value="Register"></p>
+        </form>
+      </div><!-- /#reg_container  -->
+    </div><!-- /#main  -->
+    </div>
+</body>
+</html>

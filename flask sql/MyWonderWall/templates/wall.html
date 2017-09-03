@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>The Wall</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='wall.css') }}">
+</head>
+
+<body>
+    <header>
+      <div id="wallhead">
+        <h1>Hello, {{ user_first["first_name"] }}
+        <a href="/logoff"><button id="logoff">Log Off</button></a>
+        </h1>
+      </div>
+    </header>
+
+    <div id="all">
+      <div class="post_message">
+        <h1>- Post a Message -</h1>
+        <form action="/message" method="POST">
+          <textarea name="new_message" class="message_field"></textarea>
+          <input type="submit" value="Post Message" class="message_submit">
+        </form>
+      </div>
+
+
+        {% for message in messagedata %}
+            <div class="post_group">
+                <div class="message">
+                    <h3>{{ message['first_name']}} {{ message['last_name'] }}'s Message</h3>
+                    <h5>{{"{: %I:%M %p %b %d, %Y}".format(message['created_at']).replace(" 0", " ")}}</h5>
+                    <p class="message_content">{{ message['message'] }}</p>
+                    {% if message['users_id'] == session['user_id'] %}
+                        <a href="/delete/{{message['id']}}" class="delete_message"><button class="delete_button">Delete</button></a>
+                    {% endif %}
+                </div>
+
+                {% for comment in commentdata %}
+                    {% if comment['messages_id'] == message['id'] %}
+                    <div class="comment">
+                        <h3>{{ comment['first_name'] }} {{ comment['last_name'] }}'s Comment</h3>
+                        <h5>{{"{: %I:%M %p %b %d, %Y}".format(comment['created_at']).replace(" 0", " ")}}</h5>
+                        <p class="comment_content">{{ comment['comment'] }}</p>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+
+                <form action="/comment/{{ message['id'] }}" method="POST" class="post_comment">
+                    <input type="text" name="new_comment" placeholder="comment here" >
+                    <input type="submit" value="Post Comment" class="comment_submit">
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+#all{
+  background-color:#A69084;
+  width: 100%;
+  height: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#head{
+  width: 500px;
+  height: 50px;
+  background-color: #665952;
+  border-width: 5px;
+  border-radius: 15px;
+  border-color: black;
+  border-style: solid;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#wallhead{
+  width: 100%;
+  height: 50px;
+  background-color: #665952;
+  display: inline-block;
+}
+
+#logoff{
+  float:right;
+}
+
+form p label {
+	display:block;
+	float:left;
+	width:175px;
+}
+
+#main{
+  width:500px;
+  height: 600px;
+  border-style: solid;
+  border-width: 5px;
+  border-radius: 15px;
+  border-color: black;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  background-color: #665952;
+}
+
+h1{
+  font-family: courier new;
+  text-align: center;
+  margin-top: 5px;
+}
+
+input label{
+  position: absolute;
+}
+
+.formfont{
+  font-family: courier new;
+  font-weight: bold;
+}
+
+#login{
+  margin-left: 15px;
+}
+
+#register{
+    margin-left: 15px;
+}
