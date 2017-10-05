@@ -1,0 +1,10 @@
+File "C:\Users\Owner\Desktop\Python\django\BeltReveiw\apps\login\models.py", line 69, in User
+   objects = UserManager()
+NameError: name 'UserManager' is not defined File "C:\Users\Owner\Desktop\Python\django\BeltReveiw\apps\login\models.py", line 69, in User
+    objects = UserManager()
+NameError: name 'UserManager' is not defined
+
+
+
+
+FIX THIS !!!!!
