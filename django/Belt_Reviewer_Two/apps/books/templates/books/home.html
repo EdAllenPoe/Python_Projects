@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{% static 'css/books.css' %}">
+  </head>
+  <body>
+    <div class="container">
+
+          <div>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="{% url 'books:home' %}">Home</a></li>
+              <li><a href="{% url 'books:add_book' %}">Add New Book</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="{% url 'users:logout' %}">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      {% if reviews %}
+
+        <div class="jumbotron">
+          <h1>Hello, {{request.session.first_name}}!</h1>
+          <p>Take a look at the reviews below!</p>
+        </div>
+
+        <h3>Recent Book Reviews</h3>
+        {% for review in reviews %}
+          <div class="review">
+            <h4><strong><a href="{% url 'books:show' id=review.book.id %}">{{review.book.book_title}}</strong></a></h4>
+            <h4><strong>Rating: {{review.rating}}</strong></h4>
+            <h4>{{review.user.first_name}} says: {{review.review}}</h4>
+            <em><h5>{{review.created_at}}</h5></em>
+          </div>
+        {% endfor %}
+
+        <h3>Other Books with Reviews</h3>
+        <div class="review">
+          {% for book in books %}
+          <h4><a href="{% url 'books:show' id=book.id %}">{{book.book_title}}</a></h4>
+          {% endfor %}
+        </div>
+
+      {% else %}
+
+      <div class="jumbotron">
+        <h1>Hello, {{request.session.first_name}}!</h1>
+        <p>There are currently no reviews! Please add one! </p>
+      </div>
+
+      {% endif %}
+    </div>
+  </body>
+</html>

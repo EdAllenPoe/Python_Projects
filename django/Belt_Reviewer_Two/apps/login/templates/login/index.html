@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login and Registration | Home </title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Hello, welcome to Review Books!</h1>
+        <p>Please register or login below!</p>
+      </div>
+      {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-danger" role="alert">
+          {{message}}
+        </div>
+        {% endfor %}
+      {% endif %}
+
+      <h2>Login</h2>
+      <form class="form-horizontal" action="{% url 'users:login' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="email_address" class="col-sm-2 control-label">Email Address</label>
+          <div class="col-sm-6">
+            <input type="email" name="email_address" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-6">
+            <input type="password" name="password" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-6">
+            <button type="submit" class="btn btn-info">Login</button>
+          </div>
+        </div>
+      </form>
+
+      <h2>Registration</h2>
+      <form class="form-horizontal" action="{% url 'users:registration' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="first_name" class="col-sm-2 control-label">First Name</label>
+          <div class="col-sm-6">
+            <input type="text" name="first_name" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="last_name" class="col-sm-2 control-label">Last Name</label>
+          <div class="col-sm-6">
+            <input type="text" name="last_name" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email_address" class="col-sm-2 control-label">Email Address</label>
+          <div class="col-sm-6">
+            <input type="email" name="email_address" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-6">
+            <input type="password" name="password" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirm_password" class="col-sm-2 control-label">Confirm Password</label>
+          <div class="col-sm-6">
+            <input type="password" name="confirm_password" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-6">
+            <button type="submit" class="btn btn-info">Register</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

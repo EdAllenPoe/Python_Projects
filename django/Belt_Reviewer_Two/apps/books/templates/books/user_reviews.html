@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User Reviews</title>
+    <link rel="stylesheet" href="{% static 'css/books.css' %}">
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-default">
+
+          <div>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="{% url 'books:home' %}">Home</a></li>
+              <li><a href="{% url 'books:add_book' %}">Add New Book</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="{% url 'users:logout' %}">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="jumbotron">
+        <h3>Name: {{user.first_name}} {{user.last_name}}</h3>
+        <p>Email: {{user.email}}</p>
+        <p>Total Reviews: {{total}}</p>
+        <p><strong>Posted Reviews on the following books:</strong></p>
+        <ul>
+          {% for review in reviews %}
+            <h4><li><a href="{% url 'books:show' id=review.book.id %}">{{review.book.book_title}}</a></li></h4>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
